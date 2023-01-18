@@ -5,7 +5,7 @@
 # Defaults are written in []
 
 # Languagefile to be used (found in plugins/Brewery/languages)
-language: en
+language: zh
 
 # If the player wakes up at /home when logging in after excessive drinking (/home plugin must be installed!) [true]
 enableHome: true
@@ -22,7 +22,7 @@ homeType: 'cmd: home'
 enableWake: true
 
 # If the Player may have to try multiple times when logging in while extremely drunk [true]
-enableLoginDisallow: true
+enableLoginDisallow: false
 
 # If the Player faints shortly (gets kicked from the server) if he drinks the max amount of alcohol possible [false]
 enableKickOnOverdrink: false
@@ -48,6 +48,14 @@ showStatusOnDrink: true
 drainItems:
   - Bread/4
   - Milk_Bucket/2
+  - Cooked_Beef/7
+  - Cooked_Chicken/5
+  - Cooked_Rabbit/5
+  - Cooked_Fish/3
+  - Cooked_Salmon/3
+  - Cooked_Porkchop/4
+  - Muttoncooked/6
+  
 
 # Show Particles over Cauldrons when they have ingredients and a heat source. [true]
 # The changing color of the particles can help with timing some recipes
@@ -475,7 +483,7 @@ recipes:
       - POISON/1-0/20-0
 
   wheatbeer:
-    name: Skunky Wheatbeer/Wheatbeer/Fine Wheatbeer
+    name: 变质的麦酒/麦酒/醇香麦酒
     ingredients:
       - Wheat/3
     cookingtime: 8
@@ -485,10 +493,10 @@ recipes:
     color: 'ffb84d' # Orange
     difficulty: 1
     alcohol: 5
-    lore: +++ &8Refreshing
+    lore: +++ '&8令人精神振奋'
 
   beer:
-    name: Skunky Beer/Beer/Fine Beer
+    name: 难以下咽的啤酒/啤酒/爽口鲜啤
     ingredients:
       - Wheat/6
     cookingtime: 8
@@ -498,11 +506,11 @@ recipes:
     color: 'ffd333' # Bright Orange
     difficulty: 1
     lore:
-      - +++ &8Crisp taste
+      - +++ '&8舒爽的口感'
     alcohol: 6
 
   darkbeer:
-    name: Skunky Darkbeer/Darkbeer/Fine Darkbeer
+    name: 去非洲逛了一圈的啤酒/黑啤/爽口黑啤
     ingredients:
       - Wheat/6
     cookingtime: 8
@@ -512,11 +520,11 @@ recipes:
     color: '650013' # Dark Red-Brown
     difficulty: 2
     lore:
-      - +++ &8Roasted taste
+      - +++ '&8炭烧风味'
     alcohol: 7
 
   wine:
-    name: Red Wine
+    name: 红酒
     ingredients:
       - Sweet_Berries/5
     cookingtime: 5
@@ -527,15 +535,15 @@ recipes:
     difficulty: 4
     alcohol: 8
     lore:
-      - '+ &8Harsh'
-      - '+ &8Corked'
-      - '++ &8Mellow'
-      - '+++ &8Full-Bodied'
+      - '+ &8退退退'
+      - '+ &8味道不佳'
+      - '++ &8风味醇厚'
+      - '+++ &8酒体饱满'
 
   mead:
-    name: Awkward Mead/Mead/&6Golden Mead
+    name: '你在酿一种很新的蜂蜜酒/蜂蜜酒/&6黄金蜂蜜酒'
     ingredients:
-      - Sugar_Cane/6
+      - Honey_Bottle/6
     cookingtime: 3
     distillruns: 0
     wood: 2
@@ -543,13 +551,13 @@ recipes:
     color: ORANGE
     difficulty: 2
     lore:
-      - +++ Has a golden shine
+      - +++ 闪着你的卡池里永远见不到的金光
     alcohol: 9
 
   ap_mead:
-    name: Apple Mead/Sweet Apple Mead/&6Sweet Golden Apple Mead
+    name: '苹果蜜酒/甘甜的苹果蜜酒/&6甘醇的金苹果蜜酒'
     ingredients:
-      - Sugar_Cane/6
+      - Honey_Bottle/6
       - Apple/2
     cookingtime: 4
     distillruns: 0
@@ -559,9 +567,9 @@ recipes:
     difficulty: 4
     alcohol: 11
     lore:
-      - +Is there any Apple in this?
-      - ++Refreshing taste of Apple
-      - +++Sweetest hint of Apple
+      - +你tm跟我说这里面放了苹果？
+      - ++令人精神为之一振的苹果风味
+      - +++最甘醇的苹果风味
     effects:
       - WATER_BREATHING/1-2/150
 
@@ -578,7 +586,7 @@ recipes:
     alcohol: 7
 
   apple_liquor:
-    name: Sour Apple Liquor/Apple Liquor/Calvados
+    name: 酸涩的苹果利口酒/苹果利口酒/苹果白兰地
     ingredients:
       - Apple/12
     cookingtime: 16
@@ -589,11 +597,11 @@ recipes:
     difficulty: 5
     alcohol: 14
     lore:
-      - +Sour like Acid
-      - +++ Good Apple Liquor
+      - + 酸的跟硫酸一样
+      - +++ 绝妙的苹果利口酒
 
   whiskey:
-    name: Unsightly Whiskey/Whiskey/Scotch Whiskey
+    name: 品相不佳的威士忌/威士忌/苏格兰威士忌
     ingredients:
       - Wheat/10
     cookingtime: 10
@@ -607,7 +615,7 @@ recipes:
     lore: '&7Single Malt'
 
   rum:
-    name: Bitter Rum/Spicy Rum/&6Golden Rum
+    name: 苦涩的朗姆酒/飘香的朗姆酒/&6金色朗姆酒
     ingredients:
       - Sugar_Cane/18
     cookingtime: 6
@@ -622,12 +630,12 @@ recipes:
       - FIRE_RESISTANCE/1/20-100
       - POISON/1-0/30-0
     lore:
-      - +&8Too bitter to drink
-      - ++&8Spiced by the barrel
-      - +++&eSpiced Gold
+      - +'&8良药苦口，但是我没病'
+      - ++'&8来自木桶的辛香'
+      - +++'&e飘香的黄金'
 
   vodka:
-    name: Lousy Vodka/Vodka/Russian Vodka
+    name: 这伏特加废了/伏特加/纯正俄式伏特加
     ingredients:
       - Potato/10
     cookingtime: 15
@@ -636,13 +644,13 @@ recipes:
     color: WHITE
     difficulty: 4
     alcohol: 20
-    lore: + &8Almost undrinkable
+    lore: + '&8这玩意能喝？'
     effects:
       - WEAKNESS/15
       - POISON/10
 
   shroom_vodka:
-    name: Mushroom Vodka/Mushroom Vodka/Glowing Mushroom Vodka
+    name: 蘑菇伏特加/蘑菇伏特加/发光的蘑菇伏特加
     ingredients:
       - Potato/10
       - Red_Mushroom/3
@@ -653,7 +661,7 @@ recipes:
     color: 'ff9999' # Pink-Red
     difficulty: 7
     alcohol: 18
-    lore: +++&aGlows in the dark
+    lore: +++ '&a我 会 发 光'
     effects:
       - WEAKNESS/80
       - CONFUSION/27
@@ -662,7 +670,7 @@ recipes:
       - SLOW/10-3
 
   gin:
-    name: Pale Gin/Gin/Old Tom Gin
+    name: 你这金酒不够劲啊/金酒/回忆里的那瓶金酒
     ingredients:
       - Wheat/9
       - blue-flowers/6  # Custom-Item: Blue Orchids or Cornflowers
@@ -673,13 +681,11 @@ recipes:
     difficulty: 6
     alcohol: 20
     lore:
-      - ++ With the
-      - ++ taste of juniper
-      - +++ Perfectly finished off
-      - +++ with juniper
+      - ++ 杜松子风味
+      - +++ 完美的杜松子酒
 
   tequila:
-    name: Mezcal/Tequila/Tequila anejo
+    name: 梅斯卡尔酒/龙舌兰酒/陈年龙舌兰
     ingredients:
       - cactus/8
     cookingtime: 15
@@ -689,10 +695,10 @@ recipes:
     wood: 1
     age: 12
     alcohol: 20
-    lore: Desert spirit
+    lore: 黄沙之魂
 
   absinthe:
-    name: Poor Absinthe/Absinthe/Strong Absinthe
+    name: 这苦艾酒有点虚/苦艾酒/暴烈的苦艾酒
     ingredients:
       - Grass/15
     cookingtime: 3
@@ -703,10 +709,10 @@ recipes:
     alcohol: 42
     effects:
       - POISON/15-25
-    lore: '+++&8High proof liquor'
+    lore: '+++&8人类高质量利口酒'
 
   gr_absinthe:
-    name: Poor Absinthe/Green Absinthe/Bright Green Absinthe
+    name: 这苦艾酒有点虚/绿色苦艾酒/翡翠苦艾酒
     ingredients:
       - Grass/17
       - Poisonous_Potato/2
@@ -720,10 +726,10 @@ recipes:
       - POISON/25-40
       - HARM/2
       - NIGHT_VISION/40-60
-    lore: '&aLooks poisonous'
+    lore: '&a不用看上去，它就是有毒'
 
   potato_soup:
-    name: Potato soup
+    name: 土豆汤
     ingredients:
       - Potato/5
       - Grass/3
@@ -734,7 +740,7 @@ recipes:
       - HEAL/0-1
 
   coffee:
-    name: Stale Coffee/Coffee/Strong Coffee
+    name: 咖啡豆煮水/咖啡/提神醒脑黑咖
     ingredients:
       - Cocoa_Beans/12
       - Milk_Bucket/2
@@ -742,13 +748,13 @@ recipes:
     color: BLACK
     difficulty: 3
     alcohol: -6
-    lore: + &8Probably a week old
+    lore: + '&8这玩意撂在这得有一周了吧兄弟'
     effects:
       - REGENERATION/1/2-5
       - SPEED/1/30-140
 
   eggnog:
-    name: Egg Liquor/Eggnog/Advocaat
+    name: 鸡蛋利口酒/蛋黄酒/蛋黄白兰地
     ingredients:
       - Egg/5
       - Sugar/2
@@ -759,7 +765,173 @@ recipes:
     alcohol: 10
     wood: 0
     age: 3
-    lore: Made with raw egg
+    lore: 放久了也许会孵出小只因
+    
+    
+  guiling_jelly:
+    name: 粘稠的黑色有机物/龟苓膏/古法秘制烧仙草
+    ingredients:
+      - Slime_Ball/2
+      - Grass/3
+      - Turtle_Shell_Piece/2 
+    cookingtime: 8
+    distillruns: 0
+    distilltime: 0
+    color: BLACK
+    difficulty: 8
+    alcohol: 0
+    lore:
+      - +++ 清凉败火
+    effects:
+      - FIRE_RESISTANCE/1-2/60-120
+      - DARKNESS/1/60-120
+      
+      
+  jlb:
+    name: 足力健/健力宝/东方魔水
+    ingredients:
+      - Glow_Ink_Sac/2
+      - Glow_Berries/3
+      - Glow_Lichen/2
+      - Glowstone_Dust/2
+    cookingtime: 2
+    distillruns: 0
+    color: ORANGE
+    difficulty: 4
+    alcohol: 0
+    lore:
+      - +++ 让世界尝尝中国的味道
+    effects:
+      - HASTE/1-2/120-240
+      - NIGHT_VISION/1/240
+      - SPEED/1-2/120-240
+      
+      
+  russian_soup:
+    name: 也许是甜菜牛肉汤/红菜汤/经典罗宋汤
+    ingredients:
+      - Beetroot/2
+      - Beef/2
+      - Brown_Mushroom/1
+    cookingtime: 10
+    distillruns: 0
+    distilltime: 0
+    color: RED
+    difficulty: 5
+    alcohol: -5
+    lore:
+      - ++ A kind of communism soup
+      - ++ Full of calories
+      - +++ Ура！！！
+    effects:
+      - SATURATION/1/180-360
+      - REGENERATION/1-2/20-40
+      
+      
+  miso_soup:
+     name: 平平无奇大酱汤/味噌汤/和风味噌汤
+     ingredients:
+        - Kelp/2
+        - Dried_Kelp/2
+        - Wheat_Seeds/3
+     cookingtime: 5
+     distillruns: 0
+     distilltime: 0
+     color: 'CC9966'
+     difficulty: 5
+     alcohol: 0
+     lore:
+      - +++ 岛国风味
+     effects:
+      - CONDUIT_POWER/1/0-1
+      - WATER_BREATHING/1-3/30-60
+      
+      
+  kwass:
+    name: 面包发酵液/格瓦斯/清凉格瓦斯
+    ingredients:
+       - Bread/3
+       - Sweet_Berries/2
+    cookingtime: 9
+    distillruns: 0
+    distilltime: 0
+    wood: 6
+    age: 1
+    color: 'DAA520'
+    difficulty: 5
+    alcohol: 0
+    lore:
+      - +++ 可以喝的面包 
+    effects:
+      - HEAL/2
+      - SATURATION/1-2/60-180
+      
+      
+      
+  welcome_wine:
+    name: 迎宾酒/迎宾酒/迎宾酒
+    ingredients:
+      - Dirt/1
+      - Snowball/2
+    cookingtime: 7
+    distillruns: 0
+    distilltime: 0
+    color: '753022'
+    difficulty: 5
+    alcohol: 10
+    lore:
+      - 1145141919810
+      - + 好啊（114），来吧（514）
+      - ++ 逸一时误一世，逸久逸久罢已零！
+      - +++ 哼哼，啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    effects:
+      - HUNGER/2/114
+      - WITHER/1-3/1-2
+      
+  fluorescent_agent:
+    name: 发光滴水/荧光剂兑水/荧光剂
+    ingredients:
+      - Glow_Ink_Sac/7
+      - Glowstone_Dust/2
+      - Stick/1
+    cookingtime: 2
+    distillruns: 1
+    distilltime: 10
+    wood: 0
+    age: 11
+    color: '99ddff'
+    difficulty: 5
+    alcohol: -20
+    lore:
+      - 会发光的水，看起来不太好喝
+      - + 荧光剂兑水，但是还有点杂质
+      - ++ 荧光剂兑水，fealex祖传老方
+      - +++ 荧光剂，功能性拉满
+    effects:
+      - NIGHT_VISION/2/60-120
+      - WITHER/1-3/1-5
+      - POISON/0-1/5-20
+      
+  barley_wine:
+    name: 变质的青稞酒/青稞酒/高原青稞酒
+    ingredients:
+      - Grass/2
+      - Wheat/6
+      - Slime_Ball/4
+    cookingtime: 5
+    distillruns: 1
+    distilltime: 10
+    wood: 6
+    age: 11
+    color: GREEN
+    difficulty: 7
+    alcohol: 10
+    lore:
+      - +++'&8坐上那火车去拉萨~'
+    effects:
+      - ABSORPTION/1-2/60-180
+      - HEAL/1  
+     
 
 
 
@@ -768,61 +940,61 @@ recipes:
 # It is up to the Serveradmin to change and add Recipes, so players cannot cheat from the default config.
 # Some suggestions for recipes you could use:
 
-  # g_vodka:
-  #   name: 'Rancid Vodka/&6Golden Vodka/&6Shimmering Golden Vodka'
-  #   ingredients:
-  #     - Potato/10
-  #     - Gold_Nugget/2
-  #   cookingtime: 18
-  #   distillruns: 3
-  #   age: 0
-  #   color: ORANGE
-  #   difficulty: 6
-  #   alcohol: 20
-  #   effects:
-  #     - WEAKNESS/28
-  #     - POISON/4
+  g_vodka:
+     name: '变质的伏特加/金色伏特加/&6闪耀的金色伏特加'
+     ingredients:
+       - Potato/10
+       - Gold_Nugget/2
+     cookingtime: 18
+     distillruns: 3
+     age: 0
+     color: ORANGE
+     difficulty: 6
+     alcohol: 20
+     effects:
+       - WEAKNESS/28
+       - POISON/4
 
-  # fire_whiskey:
-  #   name: Powdery Whiskey/Burning Whiskey/Blazing Whiskey
-  #   ingredients:
-  #     - Wheat/10
-  #     - Blaze_Powder/2
-  #   cookingtime: 12
-  #   distillruns: 3
-  #   distilltime: 55
-  #   wood: 4
-  #   age: 18
-  #   color: ORANGE
-  #   difficulty: 7
-  #   alcohol: 28
-  #   drinkmessage: 'You get a burning feeling in your mouth'
+  fire_whiskey:
+     name: 易燃易爆威士忌/燃烧的威士忌/爆燃的威士忌
+     ingredients:
+       - Wheat/10
+       - Blaze_Powder/2
+     cookingtime: 12
+     distillruns: 3
+     distilltime: 55
+     wood: 4
+     age: 18
+     color: ORANGE
+     difficulty: 7
+     alcohol: 28
+     drinkmessage: '有没有一种喷火的感觉'
 
 # Without Alcohol:
 
-  # hot_choc:
-  #   name: Hot Chocolate
-  #   ingredients:
-  #     - cookie/3
-  #   cookingtime: 2
-  #   color: DARK_RED
-  #   difficulty: 2
-  #   effects:
-  #     - FAST_DIGGING/40
+  hot_choc:
+     name: 热巧克力
+     ingredients:
+       - cookie/3
+     cookingtime: 2
+     color: DARK_RED
+     difficulty: 2
+     effects:
+       - FAST_DIGGING/40
 
-  # iced_coffee:
-  #   name: Watery Coffee/Iced Coffee/Strong Iced Coffee
-  #   ingredients:
-  #     - cookie/8
-  #     - snowball/4
-  #     - milk_bucket/1
-  #   cookingtime: 1
-  #   color: BLACK
-  #   difficulty: 4
-  #   alcohol: -8
-  #   effects:
-  #     - REGENERATION/30
-  #     - SPEED/10
+  iced_coffee:
+     name: 水货/冰镇咖啡/劲凉冰咖啡
+     ingredients:
+       - cookie/8
+       - snowball/4
+       - milk_bucket/1
+     cookingtime: 1
+     color: BLACK
+     difficulty: 4
+     alcohol: -8
+     effects:
+       - REGENERATION/30
+       - SPEED/10
 
 
 # More Recipe ideas:
@@ -1172,31 +1344,31 @@ words:
    alcohol: 30
 
 -  replace: -random
-   to: ' *hic* '
+   to: ' *嗝* '
    percentage: 80
    alcohol: 70
 
 -  replace: -random
-   to: ' *hic* '
+   to: ' *嗝* '
    percentage: 15
    alcohol: 40
 
 -  replace: -space
-   to: ' *hic* '
+   to: ' *嗝* '
    percentage: 5
    alcohol: 20
 
 -  replace: -end
-   to: ' *hic*'
+   to: ' *嗝*'
    percentage: 70
    alcohol: 50
 
 -  replace: -all
-   to: '*burp*'
+   to: '*嘿嘿嘿fealex小小的软软的香香的*'
    percentage: 3
    alcohol: 60
 
 -  replace: -all
-   to: '*burp*'
+   to: '*你这样的小fealex生来就是要被妈妈吃掉的~*'
    percentage: 6
    alcohol: 80
